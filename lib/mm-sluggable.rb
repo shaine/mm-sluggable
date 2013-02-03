@@ -15,6 +15,7 @@ module MongoMapper
             :index        => true,
             :method       => :parameterize,
             :scope        => nil,
+            :blacklist    => [],
             :max_length   => 256,
             :callback     => [:before_validation, {:on => :create}]
           }.merge(options)
@@ -44,7 +45,7 @@ module MongoMapper
 
         # todo - remove the loop and use regex instead so we can do it in one query
         i = 0
-        while self.class.first(conds)
+        while self.class.first(conds) || options[:blacklist].include?(the_slug)
           i += 1
           conds[options[:key]] = the_slug = "#{raw_slug}-#{i}"
         end
