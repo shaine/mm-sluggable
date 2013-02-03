@@ -25,10 +25,11 @@ Available options are:
 * :index - whether to add an index for the slug (default - true)
 * :method - what method to call on the field to sluggify it (default - :parameterize)
 * :callback - when to trigger the slugging (default - :before_validation_on_create)
+* :blacklist - array of strings which should be considered already used slugs (default - [])
 
 Eg.
 
-  sluggable :title, :scope => :account_id, :key => :title_slug, :method => :to_url, :index => false
+  sluggable :title, :scope => :account_id, :key => :title_slug, :method => :to_url, :index => false, :blacklist => ["foo", "bar"]
 
 This will slug the title to the title_slug key, scoped to the account, will use String#to_url to slug it and won't add an index to the key
 
