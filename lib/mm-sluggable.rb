@@ -28,7 +28,7 @@ module MongoMapper
           end
         end
       end
-      
+
       def set_slug
         options = self.class.slug_options
         return unless self.send(options[:key]).blank?
@@ -51,7 +51,7 @@ module MongoMapper
 
         self.send(:"#{options[:key]}=", the_slug)
       end
-      
+
     end
   end
 end
