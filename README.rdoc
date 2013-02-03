@@ -15,7 +15,7 @@ Either load it into all models, or individual models:
 Then call sluggable to configure it
 
   sluggable :title, :scope => :account_id
-  
+
 == Options
 
 Available options are:
@@ -29,7 +29,7 @@ Available options are:
 Eg.
 
   sluggable :title, :scope => :account_id, :key => :title_slug, :method => :to_url, :index => false
-  
+
 This will slug the title to the title_slug key, scoped to the account, will use String#to_url to slug it and won't add an index to the key
 
 == Versioning
